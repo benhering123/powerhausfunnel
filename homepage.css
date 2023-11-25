@@ -11,26 +11,35 @@ body {
 
 header {
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px 20px 0; /* No bottom padding */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
     justify-content: center; /* Center the logo horizontally */
+    position: relative;
+    z-index: 2;
 }
 
 #logo {
     max-width: 300px; /* Adjust width as needed */
     height: auto; /* Keeps the aspect ratio of the image */
+    margin-bottom: -5px; /* Pull content up closer to the logo */
 }
 
 #intro {
     max-width: 500px; /* Adjust based on your layout requirements */
-    margin-top: 10px; /* Reduced space below the logo */
-    padding: 20px;
+    margin-top: 0; /* No additional top margin */
+    padding: 0 20px; /* Horizontal padding only */
     text-align: left; /* Align text to the left */
 }
 
-#intro h1, #sub-header {
-    text-align: left; /* Align text to the left */
+#intro h1 {
+    font-size: 2em; /* Large size for the main header, adjust as needed */
+    margin-bottom: 0.5em; /* Space below the header */
+}
+
+#sub-header {
+    font-size: 1em; /* Smaller size for the sub-header text, adjust as needed */
+    color: #cccccc; /* Lighter text color for the sub-header */
 }
 
 #cta-button {
@@ -64,24 +73,44 @@ main {
     padding: 0 20px; /* Add padding on the sides */
 }
 
-/* Clearing previous absolute positioning for responsive alignment */
+/* Media query for mobile devices */
 @media (max-width: 768px) {
-    main {
-        flex-direction: column; /* Stack children vertically on smaller screens */
+    header {
+        padding: 5px 10px;
     }
 
-    #front-man {
-        position: static;
-        max-width: 100%;
-        margin-top: 20px; /* Add some space above the image on smaller screens */
+    #logo {
+        width: 150px; /* Smaller logo on mobile */
+        margin-bottom: 0;
     }
 
     #intro {
-        text-align: center;
-        margin-top: 20px; /* Add space below the logo on smaller screens */
+        max-width: 100%; /* Use full width on mobile */
+        margin-top: 0;
+        padding: 10px;
+        text-align: center; /* Center text on mobile */
     }
 
-    #intro h1, #sub-header, #cta-button {
-        text-align: center;
+    #intro h1 {
+        font-size: 1.5em; /* Smaller header on mobile */
+    }
+
+    #sub-header {
+        font-size: 0.8em; /* Smaller sub-header on mobile */
+    }
+
+    #cta-button {
+        padding: 8px 16px; /* Smaller button on mobile */
+    }
+
+    #front-man {
+        max-width: 100%; /* Full width image on mobile */
+        position: static; /* Static position on mobile */
+        margin-top: 20px; /* Space above the image on mobile */
+    }
+
+    main {
+        flex-direction: column; /* Stack intro and image vertically on mobile */
+        height: auto; /* Height auto on mobile to contain all content */
     }
 }
