@@ -1,0 +1,87 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Black background for the entire page */
+    color: #ffffff; /* White text color for the entire page */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center; /* Center the logo horizontally */
+}
+
+#logo {
+    max-width: 300px; /* Adjust width as needed */
+    height: auto; /* Keeps the aspect ratio of the image */
+}
+
+#intro {
+    max-width: 500px; /* Adjust based on your layout requirements */
+    margin-top: 10px; /* Reduced space below the logo */
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+}
+
+#intro h1, #sub-header {
+    text-align: left; /* Align text to the left */
+}
+
+#cta-button {
+    background-color: #d50000; /* Button background color */
+    color: #ffffff; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block; /* Make the button a block element to fill the width of #intro */
+    margin-top: 20px; /* Space above the button */
+    text-align: center; /* Center the text inside the button */
+}
+
+#front-man {
+    max-width: 500px; /* Adjust width based on your layout, or use auto for original size */
+    height: auto; /* Keep height auto to maintain aspect ratio */
+    position: absolute;
+    right: 50px; /* Adjust the position from the right */
+    top: 50%; /* Adjust if necessary to move the image up or down */
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Adjusting the main container to use flexbox */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This makes the main area fill the entire viewport height */
+    flex-direction: row; /* Align children (intro text and image) in a row */
+    padding: 0 20px; /* Add padding on the sides */
+}
+
+/* Clearing previous absolute positioning for responsive alignment */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Stack children vertically on smaller screens */
+    }
+
+    #front-man {
+        position: static;
+        max-width: 100%;
+        margin-top: 20px; /* Add some space above the image on smaller screens */
+    }
+
+    #intro {
+        text-align: center;
+        margin-top: 20px; /* Add space below the logo on smaller screens */
+    }
+
+    #intro h1, #sub-header, #cta-button {
+        text-align: center;
+    }
+}
